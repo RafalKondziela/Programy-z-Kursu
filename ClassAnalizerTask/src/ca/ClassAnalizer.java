@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 public class ClassAnalizer {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		Door door = new Door();
 		
@@ -34,6 +34,15 @@ public class ClassAnalizer {
 		 
 		 System.out.println(interfaces);
 		 
+		 System.out.println("-------------------------");
+		 
+		 Field field = door.getClass().getDeclaredField("color");
+		 
+		field.setAccessible(true);
+		 
+		field.set(door, "zielone");
+		 
+		 door.close();
 		 
 	}
 	
